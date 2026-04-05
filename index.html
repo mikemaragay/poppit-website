@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>POPPiT — Savor the Moment</title>
+<title>POPPiT — Childhood. Upgraded.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Lilita+One&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
@@ -33,9 +33,13 @@ img{display:block;max-width:100%}
 
 /* ── ANIMATIONS ──────────────────────────────────────────── */
 @keyframes floatGummy{
-  0%,100%{transform:translateY(0) rotate(0deg)}
-  33%{transform:translateY(-18px) rotate(6deg)}
-  66%{transform:translateY(10px) rotate(-4deg)}
+  0%,100%{transform:translateY(0) rotate(0deg) scale(1)}
+  33%{transform:translateY(-18px) rotate(8deg) scale(1.05)}
+  66%{transform:translateY(10px) rotate(-6deg) scale(.97)}
+}
+@keyframes gummyPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
 }
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes tickerRev{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
@@ -51,9 +55,9 @@ img{display:block;max-width:100%}
   from{opacity:0;transform:translateY(30px)}
   to{opacity:1;transform:translateY(0)}
 }
-@keyframes pulse{
-  0%,100%{box-shadow:0 0 40px rgba(168,28,28,.4)}
-  50%{box-shadow:0 0 70px rgba(168,28,28,.7)}
+@keyframes cta-pulse{
+  0%,100%{box-shadow:0 0 40px rgba(168,28,28,.4),0 4px 20px rgba(168,28,28,.3)}
+  50%{box-shadow:0 0 80px rgba(168,28,28,.75),0 4px 30px rgba(168,28,28,.5)}
 }
 @keyframes rotateSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
@@ -144,7 +148,7 @@ img{display:block;max-width:100%}
 #hero{
   min-height:100vh;position:relative;overflow:hidden;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:60px 24px 100px;
+  padding:60px 24px 100px;contain:layout style paint;
   background:
     radial-gradient(ellipse at 20% 40%,rgba(168,28,28,.22) 0%,transparent 50%),
     radial-gradient(ellipse at 80% 30%,rgba(245,212,75,.1) 0%,transparent 50%),
@@ -210,9 +214,9 @@ img{display:block;max-width:100%}
   background:var(--red);color:#fce588;
   padding:18px 52px;border-radius:50px;
   font-weight:700;transition:transform .25s,box-shadow .25s;
-  animation:pulse 3s ease-in-out infinite;
+  animation:cta-pulse 3s ease-in-out infinite;
 }
-.btn-primary:hover{transform:scale(1.06);animation:none;box-shadow:0 0 70px rgba(168,28,28,.7)}
+.btn-primary:hover{transform:scale(1.06);animation:none;filter:brightness(1.15);box-shadow:0 0 80px rgba(168,28,28,.75)}
 
 /* scroll indicator */
 .scroll-indicator{
@@ -231,9 +235,10 @@ img{display:block;max-width:100%}
 /* floating gummies */
 .bg-gummy{
   position:absolute;border-radius:40% 60% 55% 45% / 50% 40% 60% 50%;
-  opacity:.09;filter:blur(1px);
+  opacity:var(--op,.2);filter:blur(1px);
   animation:floatGummy var(--dur,6s) ease-in-out infinite;
   animation-delay:var(--del,0s);
+  will-change:transform;
 }
 
 /* ── TICKER ──────────────────────────────────────────────── */
@@ -565,6 +570,67 @@ img{display:block;max-width:100%}
 .footer-legal a{color:rgba(245,245,240,.28);text-decoration:none}
 .footer-legal a:hover{color:var(--gold)}
 
+/* ── SECTION HEADING LIGHT ───────────────────────────────── */
+.section-heading-light{
+  font-family:'Boogaloo','Lilita One',cursive;
+  font-weight:400;line-height:1.05;
+  color:var(--white);text-align:center;
+}
+
+/* ── VARIETY HEADING GLOW ────────────────────────────────── */
+.variety-heading-glow{
+  font-family:'Boogaloo','Lilita One',cursive;
+  font-weight:400;line-height:1.05;
+  color:var(--white);text-align:center;
+  text-shadow:0 0 30px rgba(255,255,255,.35),0 0 60px rgba(232,184,32,.25);
+}
+
+/* ── SECTION DIVIDER ─────────────────────────────────────── */
+.section-divider{
+  display:block;height:2px;border:none;
+  background:linear-gradient(90deg,transparent,rgba(232,184,32,.25),rgba(168,28,28,.35),rgba(232,184,32,.25),transparent);
+}
+
+/* ── HERO VISUAL CONTAINER ───────────────────────────────── */
+.hero-visual-container{
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;
+}
+
+/* ── POUCH ICON (CSS gummy shape, replaces emoji) ────────── */
+.pouch-icon{
+  width:64px;height:64px;border-radius:50% 50% 45% 45% / 55% 55% 45% 45%;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  box-shadow:inset 0 4px 8px rgba(255,255,255,.3),0 4px 16px rgba(0,0,0,.4);
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.4));
+}
+.pouch-icon::after{
+  content:'';position:absolute;
+  width:55%;height:40%;border-radius:50%;
+  background:rgba(255,255,255,.22);
+  top:18%;left:22%;
+}
+
+/* ── FLAVOR DOTS (variety pack, replaces emoji) ──────────── */
+.flavor-dots{display:flex;justify-content:center;gap:24px;margin-bottom:32px;flex-wrap:wrap}
+.flavor-dot{
+  width:80px;height:80px;border-radius:50%;
+  box-shadow:0 4px 20px var(--dot-glow,rgba(255,255,255,.2));
+  position:relative;
+}
+.flavor-dot::after{
+  content:'';position:absolute;
+  width:45%;height:35%;border-radius:50%;
+  background:rgba(255,255,255,.28);
+  top:18%;left:22%;
+}
+
+/* ── PERFORMANCE ─────────────────────────────────────────── */
+@media(prefers-reduced-motion:reduce){
+  .bg-gummy,.ticker-row,.btn-primary,.scroll-indicator,.scroll-dot{animation:none!important}
+  *{transition-duration:.01ms!important}
+}
+
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media(max-width:700px){
   #nav{padding:0 16px}
@@ -607,7 +673,7 @@ img{display:block;max-width:100%}
   </div>
 
   <div class="nav-logo">
-    <img src="poppit_logo_optimized.jpg" alt="POPPiT" style="height:38px;width:auto;object-fit:contain;filter:drop-shadow(1px 2px 4px rgba(0,0,0,0.5));" />
+    <img src="poppit_logo_optimized.jpg" alt="POPPiT" style="height:38px;width:auto;object-fit:contain;filter:drop-shadow(1px 2px 4px rgba(0,0,0,0.5));" loading="lazy" />
   </div>
 
   <div class="nav-right">
@@ -618,8 +684,10 @@ img{display:block;max-width:100%}
 
 <!-- HERO -->
 <section id="hero">
-  <!-- floating gummies (injected by JS) -->
-  <div id="hero-gummies"></div>
+  <!-- floating gummies injected by JS into hero-visual-container -->
+  <div class="hero-visual-container" data-note="bg-gummies">
+    <div id="hero-gummies"></div>
+  </div>
 
   <div class="hero-content">
     <div class="hero-intro">Introducing</div>
@@ -628,9 +696,9 @@ img{display:block;max-width:100%}
       <span class="wm-pop">POPP</span><span class="wm-i-lower">i</span><span class="wm-t">T</span>
     </div>
 
-    <div class="hero-tagline">Savor the Moment</div>
+    <div class="hero-tagline">Childhood. Upgraded.</div>
 
-    <p class="hero-sub">10g protein. 5g fiber. Low sugar. All attitude.</p>
+    <p class="hero-sub">10g protein. 5g fiber. No artificial flavors or colors. All attitude.</p>
 
     <button class="btn-primary" onclick="document.getElementById('lineup-heading').scrollIntoView({behavior:'smooth'})">
       Shop Now
@@ -642,13 +710,15 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
+<hr class="section-divider">
+
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-row ticker-row--top">
-    SAVOR THE MOMENT &bull; SAVOR THE MOMENT &bull; SAVOR THE MOMENT &bull; SAVOR THE MOMENT &bull; SAVOR THE MOMENT &bull; SAVOR THE MOMENT &bull; SAVOR THE MOMENT &bull; SAVOR THE MOMENT &bull; SAVOR THE MOMENT &bull;
+    CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull;
   </div>
   <div class="ticker-row ticker-row--btm">
-    10G PROTEIN PER SERVING ✦ NO ARTIFICIAL COLORS ✦ BOUNCY &amp; CHEWY ✦ TASTES LIKE CANDY ✦ 5G FIBER ✦ LOW SUGAR ✦ POWERED BY PEPTIDES ✦ 10G PROTEIN PER SERVING ✦ NO ARTIFICIAL COLORS ✦ BOUNCY &amp; CHEWY ✦ TASTES LIKE CANDY ✦ 5G FIBER ✦ LOW SUGAR ✦ POWERED BY PEPTIDES ✦
+    10G PROTEIN PER SERVING ✦ NO ARTIFICIAL COLORS ✦ BOUNCY &amp; CHEWY ✦ TASTES LIKE CANDY ✦ 5G FIBER ✦ NO ARTIFICIAL FLAVORS ✦ LOW SUGAR ✦ 10G PROTEIN PER SERVING ✦ NO ARTIFICIAL COLORS ✦ BOUNCY &amp; CHEWY ✦ TASTES LIKE CANDY ✦ 5G FIBER ✦ NO ARTIFICIAL FLAVORS ✦ LOW SUGAR ✦
   </div>
 </div>
 
@@ -664,7 +734,7 @@ img{display:block;max-width:100%}
   <div class="product-inner">
     <div class="product-mock">
       <div class="product-pouch" style="background:linear-gradient(180deg,rgba(0,212,255,.13),rgba(0,212,255,.04));border:2px solid rgba(0,212,255,.28);box-shadow:0 20px 60px rgba(0,212,255,.08)">
-        <div class="pouch-emoji">🍬</div>
+        <div class="pouch-icon" style="background:radial-gradient(circle at 35% 35%,#44ddff,#00b4ff,#0088cc)"></div>
         <div class="pouch-brand" style="background:linear-gradient(180deg,#fce588,#e8b820,#c49518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(2px 2px 0 #7a1414)">POPPiT</div>
         <div class="pouch-sub">Protein Candy</div>
         <div class="pouch-flavor" style="color:#00d4ff">Blue Raspberry</div>
@@ -706,7 +776,7 @@ img{display:block;max-width:100%}
   <div class="product-inner reverse">
     <div class="product-mock">
       <div class="product-pouch" style="background:linear-gradient(180deg,rgba(255,45,123,.13),rgba(255,45,123,.04));border:2px solid rgba(255,45,123,.28);box-shadow:0 20px 60px rgba(255,45,123,.08)">
-        <div class="pouch-emoji">🍬</div>
+        <div class="pouch-icon" style="background:radial-gradient(circle at 35% 35%,#ff80b4,#ff2d7b,#cc0055)"></div>
         <div class="pouch-brand" style="background:linear-gradient(180deg,#fce588,#e8b820,#c49518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(2px 2px 0 #7a1414)">POPPiT</div>
         <div class="pouch-sub">Protein Candy</div>
         <div class="pouch-flavor" style="color:#ff2d7b">Strawberry</div>
@@ -748,7 +818,7 @@ img{display:block;max-width:100%}
   <div class="product-inner">
     <div class="product-mock">
       <div class="product-pouch" style="background:linear-gradient(180deg,rgba(184,255,0,.12),rgba(184,255,0,.04));border:2px solid rgba(184,255,0,.25);box-shadow:0 20px 60px rgba(184,255,0,.07)">
-        <div class="pouch-emoji">🍬</div>
+        <div class="pouch-icon" style="background:radial-gradient(circle at 35% 35%,#d4ff44,#b8ff00,#88cc00)"></div>
         <div class="pouch-brand" style="background:linear-gradient(180deg,#fce588,#e8b820,#c49518);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(2px 2px 0 #7a1414)">POPPiT</div>
         <div class="pouch-sub">Protein Candy</div>
         <div class="pouch-flavor" style="color:#b8ff00">Lemon-Lime</div>
@@ -784,15 +854,17 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
+<hr class="section-divider">
+
 <!-- VARIETY PACK -->
 <section id="variety">
   <span class="label">Can't decide?</span>
-  <div class="gold-heading variety-h">Variety Pack</div>
+  <div class="variety-heading-glow variety-h">Variety Pack</div>
   <p class="variety-desc">All three flavors. One box. Zero regret.</p>
-  <div class="variety-gummies">
-    <div class="variety-gummy" style="background:radial-gradient(circle,#44ddff,#00b4ff);box-shadow:0 4px 20px rgba(0,212,255,.3)">🍬</div>
-    <div class="variety-gummy" style="background:radial-gradient(circle,#ff69b4,#ff2d7b);box-shadow:0 4px 20px rgba(255,45,123,.3)">🍬</div>
-    <div class="variety-gummy" style="background:radial-gradient(circle,#e0ff66,#b8ff00);box-shadow:0 4px 20px rgba(184,255,0,.25)">🍬</div>
+  <div class="flavor-dots">
+    <div class="flavor-dot" style="background:radial-gradient(circle at 35% 35%,#44ddff,#00b4ff,#0088cc);--dot-glow:rgba(0,212,255,.3)"></div>
+    <div class="flavor-dot" style="background:radial-gradient(circle at 35% 35%,#ff80b4,#ff2d7b,#cc0055);--dot-glow:rgba(255,45,123,.3)"></div>
+    <div class="flavor-dot" style="background:radial-gradient(circle at 35% 35%,#d4ff44,#b8ff00,#88cc00);--dot-glow:rgba(184,255,0,.25)"></div>
   </div>
   <button class="btn-outline">Add Variety Pack — $44.99</button>
 </section>
@@ -800,7 +872,7 @@ img{display:block;max-width:100%}
 <!-- REVIEWS -->
 <section id="reviews">
   <span class="label">What people are saying</span>
-  <div class="gold-heading reviews-h">Real Talk</div>
+  <div class="section-heading-light reviews-h">Real Talk</div>
   <div class="reviews-grid">
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
@@ -835,11 +907,14 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
+<hr class="section-divider">
+
 <!-- SUBSCRIBE -->
 <section id="subscribe">
   <div class="gold-heading subscribe-h">Never Run Dry.</div>
   <p class="subscribe-desc">Subscribe and never think about it again. Your protein candy shows up, you eat it, life is good.</p>
   <div class="benefits">
+    <!-- TODO: replace benefit emojis with CSS icons or SVGs when brand icon set is ready -->
     <div class="benefit"><div class="benefit-icon">💰</div><div class="benefit-text">Save 15% every order</div></div>
     <div class="benefit"><div class="benefit-icon">🚀</div><div class="benefit-text">Early access to drops</div></div>
     <div class="benefit"><div class="benefit-icon">📦</div><div class="benefit-text">Free shipping, always</div></div>
@@ -848,10 +923,12 @@ img{display:block;max-width:100%}
   <button class="btn-gold">Subscribe &amp; Save</button>
 </section>
 
+<hr class="section-divider">
+
 <!-- FIND US -->
 <section id="findus">
   <span class="label">Coming soon</span>
-  <div class="gold-heading findus-h">Find Us Near You</div>
+  <div class="section-heading-light findus-h">Find Us Near You</div>
   <div class="retailers">
     <span class="retailer">TARGET</span>
     <span class="retailer">WHOLE FOODS</span>
@@ -865,7 +942,7 @@ img{display:block;max-width:100%}
 <!-- FAQ -->
 <section id="faq">
   <div class="faq-inner">
-    <div class="gold-heading faq-h">FAQ</div>
+    <div class="section-heading-light faq-h">FAQ</div>
 
     <div class="faq-item">
       <div class="faq-q">
@@ -909,10 +986,12 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
+<hr class="section-divider">
+
 <!-- COMMUNITY -->
 <section id="community">
   <span class="label">Community</span>
-  <div class="gold-heading community-h">Join the Rebellion</div>
+  <div class="section-heading-light community-h">Join the Rebellion</div>
   <p class="community-desc">Tag #POPPiT and show us how you savor the moment.</p>
   <div class="ugc-grid">
     <div class="ugc-card" style="background:linear-gradient(135deg,rgba(255,45,123,.18),rgba(255,45,123,.06));border:1px solid rgba(255,45,123,.18)">
@@ -935,7 +1014,7 @@ img{display:block;max-width:100%}
 
 <!-- EMAIL CAPTURE -->
 <section id="email-capture">
-  <div class="gold-heading email-h">Get Early Access</div>
+  <div class="email-h">Get Early Access</div>
   <p class="email-desc">15% off your first order. No spam. Just candy.</p>
   <form class="email-form" onsubmit="handleEmail(event)">
     <input type="email" class="email-input" placeholder="your@email.com" required />
@@ -969,8 +1048,8 @@ window.addEventListener('scroll', () => {
 const bannerMsgs = [
   'FREE SHIPPING ON ORDERS $40+',
   'SUBSCRIBE &amp; SAVE 15%',
-  '10G PROTEIN &bull; 5G FIBER &bull; LOW SUGAR',
-  'CANDY, REIMAGINED',
+  '10G PROTEIN &bull; 5G FIBER &bull; NO ARTIFICIAL FLAVORS',
+  'CHILDHOOD. UPGRADED.',
 ];
 let bannerIdx = 0;
 const bannerEl = document.getElementById('top-banner');
@@ -987,17 +1066,20 @@ bannerEl.style.transition = 'opacity .3s';
 /* ── FLOATING BACKGROUND GUMMIES ────────────────────────── */
 const colors = ['#ff2d7b','#00d4ff','#b8ff00','#f5d44b','#a81c1c','#d4701a'];
 const heroGummies = document.getElementById('hero-gummies');
-for (let i = 0; i < 18; i++) {
+for (let i = 0; i < 26; i++) {
   const d = document.createElement('div');
-  const size = 22 + Math.random() * 58;
+  /* mix small, medium, and occasional large shapes */
+  const sizeTier = i < 18 ? (22 + Math.random() * 58) : (80 + Math.random() * 60);
+  const op = (0.15 + Math.random() * 0.2).toFixed(2); /* 0.15–0.35 */
   d.className = 'bg-gummy';
   d.style.cssText = `
-    width:${size}px;height:${size * .85}px;
+    width:${sizeTier}px;height:${sizeTier * .85}px;
     background:${colors[i % colors.length]};
     left:${Math.random() * 100}%;
     top:${Math.random() * 100}%;
-    --dur:${4 + Math.random() * 6}s;
-    --del:-${Math.random() * 5}s;
+    --dur:${4 + Math.random() * 7}s;
+    --del:-${Math.random() * 6}s;
+    --op:${op};
     pointer-events:none;
   `;
   heroGummies.appendChild(d);
