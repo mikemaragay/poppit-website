@@ -147,8 +147,8 @@ img{display:block;max-width:100%}
 /* ── HERO ────────────────────────────────────────────────── */
 #hero{
   min-height:100vh;position:relative;overflow:hidden;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:60px 24px 100px;contain:layout style paint;
+  display:flex;flex-direction:row;align-items:center;justify-content:center;
+  gap:60px;padding:80px 80px 100px;contain:layout style paint;
   background:
     radial-gradient(ellipse at 20% 40%,rgba(168,28,28,.22) 0%,transparent 50%),
     radial-gradient(ellipse at 80% 30%,rgba(245,212,75,.1) 0%,transparent 50%),
@@ -156,8 +156,9 @@ img{display:block;max-width:100%}
     #0a0a0a;
 }
 .hero-content{
-  text-align:center;position:relative;z-index:2;max-width:860px;
-  display:flex;flex-direction:column;align-items:center;
+  text-align:left;position:relative;z-index:2;
+  flex:0 0 auto;max-width:520px;
+  display:flex;flex-direction:column;align-items:flex-start;
   animation:fadeSlideUp .8s ease both;
 }
 .hero-intro{
@@ -570,11 +571,31 @@ img{display:block;max-width:100%}
 .footer-legal a{color:rgba(245,245,240,.28);text-decoration:none}
 .footer-legal a:hover{color:var(--gold)}
 
+/* ── HERO RIGHT COLUMN ───────────────────────────────────── */
+.hero-right{
+  flex:1 1 400px;max-width:480px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;z-index:2;min-height:400px;
+}
+.hero-pkg-placeholder{
+  width:280px;height:380px;border-radius:28px;
+  border:2px dashed rgba(232,184,32,.2);
+  background:rgba(232,184,32,.03);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;
+}
+.hero-pkg-placeholder-label{
+  font-family:'Space Mono',monospace;font-size:10px;
+  letter-spacing:3px;color:rgba(245,212,75,.28);
+  text-transform:uppercase;text-align:center;line-height:1.7;
+}
+
 /* ── SECTION HEADING LIGHT ───────────────────────────────── */
 .section-heading-light{
   font-family:'Boogaloo','Lilita One',cursive;
   font-weight:400;line-height:1.05;
-  color:var(--white);text-align:center;
+  color:#f5f5f0;text-align:center;
+  text-shadow:0 0 30px rgba(255,255,255,.35),0 0 60px rgba(232,184,32,.25);
 }
 
 /* ── VARIETY HEADING GLOW ────────────────────────────────── */
@@ -641,6 +662,9 @@ img{display:block;max-width:100%}
   .benefits{gap:24px}
   .benefit{flex:0 0 110px}
   .shop-dropdown{display:none!important}
+  #hero{flex-direction:column;gap:0;padding:60px 24px 100px}
+  .hero-content{text-align:center;align-items:center;max-width:100%}
+  .hero-right{display:none}
 }
 </style>
 </head>
@@ -690,37 +714,30 @@ img{display:block;max-width:100%}
   </div>
 
   <div class="hero-content">
-    <div class="hero-intro">Introducing</div>
-
     <div class="hero-wordmark">
       <span class="wm-pop">POPP</span><span class="wm-i-lower">i</span><span class="wm-t">T</span>
     </div>
 
     <div class="hero-tagline">Childhood. Upgraded.</div>
 
-    <p class="hero-sub">10g protein. 5g fiber. No artificial flavors or colors. All attitude.</p>
+    <p class="hero-sub">10g protein. 5g fiber. No artificial flavors or colors.</p>
 
     <button class="btn-primary" onclick="document.getElementById('lineup-heading').scrollIntoView({behavior:'smooth'})">
       Shop Now
     </button>
   </div>
 
+  <!-- SWAP: replace placeholder with product bag image -->
+  <div class="hero-right">
+    <div class="hero-pkg-placeholder">
+      <div class="hero-pkg-placeholder-label">Hero Packaging<br>Coming Soon</div>
+    </div>
+  </div>
+
   <div class="scroll-indicator">
     <div class="scroll-box"><div class="scroll-dot"></div></div>
   </div>
 </section>
-
-<hr class="section-divider">
-
-<!-- TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker-row ticker-row--top">
-    CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull;
-  </div>
-  <div class="ticker-row ticker-row--btm">
-    10G PROTEIN PER SERVING ✦ NO ARTIFICIAL COLORS ✦ BOUNCY &amp; CHEWY ✦ TASTES LIKE CANDY ✦ 5G FIBER ✦ NO ARTIFICIAL FLAVORS ✦ LOW SUGAR ✦ 10G PROTEIN PER SERVING ✦ NO ARTIFICIAL COLORS ✦ BOUNCY &amp; CHEWY ✦ TASTES LIKE CANDY ✦ 5G FIBER ✦ NO ARTIFICIAL FLAVORS ✦ LOW SUGAR ✦
-  </div>
-</div>
 
 <!-- LINEUP HEADING -->
 <div id="lineup-heading">
@@ -868,9 +885,21 @@ img{display:block;max-width:100%}
   <button class="btn-outline">Add Variety Pack — $44.99</button>
 </section>
 
+<!-- TICKER — product ribbon (below variety pack) -->
+<div class="ticker-wrap">
+  <div class="ticker-row ticker-row--top">
+    CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull; CHILDHOOD. UPGRADED. &bull;
+  </div>
+  <div class="ticker-row ticker-row--btm">
+    10G PROTEIN PER SERVING ✦ NO ARTIFICIAL COLORS ✦ BOUNCY &amp; CHEWY ✦ TASTES LIKE CANDY ✦ 5G FIBER ✦ NO ARTIFICIAL FLAVORS ✦ LOW SUGAR ✦ 10G PROTEIN PER SERVING ✦ NO ARTIFICIAL COLORS ✦ BOUNCY &amp; CHEWY ✦ TASTES LIKE CANDY ✦ 5G FIBER ✦ NO ARTIFICIAL FLAVORS ✦ LOW SUGAR ✦
+  </div>
+</div>
+
+<hr class="section-divider">
+
 <!-- REVIEWS -->
 <section id="reviews">
-  <span class="label">What people are saying</span>
+  <span class="label">Every bite takes you back.</span>
   <div class="section-heading-light reviews-h">Real Talk</div>
   <div class="reviews-grid">
     <div class="review-card">
