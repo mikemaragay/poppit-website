@@ -40,6 +40,15 @@ button{cursor:pointer;border:none;background:none}
   100%{transform:translateY(-10px) rotate(4deg)}
 }
 
+/* ── TOP BANNER ─────────────────────────────────────────────── */
+#top-banner{
+  background:var(--red);color:#fce588;
+  text-align:center;padding:9px 16px;
+  font-family:'Oswald','Impact',sans-serif;
+  font-size:11px;letter-spacing:2px;font-weight:700;
+  position:relative;z-index:200;transition:opacity .3s;
+}
+
 /* ── TICKER ─────────────────────────────────────────────────── */
 .ticker-wrap{
   background:var(--red);overflow:hidden;
@@ -426,6 +435,9 @@ button{cursor:pointer;border:none;background:none}
 </head>
 <body>
 
+<!-- TOP BANNER -->
+<div id="top-banner">FREE SHIPPING ON ORDERS $40+</div>
+
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-track" id="ticker-track"></div>
@@ -434,7 +446,9 @@ button{cursor:pointer;border:none;background:none}
 <!-- NAV -->
 <nav id="shop-nav">
   <div class="shop-nav-inner">
-    <button class="nav-logo-btn gold-text" onclick="goHome()">POPPiT</button>
+    <button class="nav-logo-btn" onclick="goHome()" style="padding:0;display:flex;align-items:center">
+      <img src="poppit_logo_optimized.jpg" alt="POPPiT" style="height:38px;width:auto;object-fit:contain;filter:drop-shadow(1px 2px 4px rgba(0,0,0,0.5));" loading="lazy" />
+    </button>
     <div class="nav-right-btns">
       <button class="nav-shop-link" onclick="showShopView()">Shop</button>
       <button class="cart-btn-shop" onclick="openCart()">
@@ -920,6 +934,21 @@ function showShopView() {
   window.scrollTo(0,0);
 }
 function goHome() { window.location.href = 'index.html'; }
+
+/* ── TOP BANNER ROTATOR ────────────────────────────────────── */
+const bannerMsgs = [
+  'FREE SHIPPING ON ORDERS $40+',
+  'SUBSCRIBE &amp; SAVE 15%',
+  '10G PROTEIN &bull; 5G FIBER &bull; NO ARTIFICIAL FLAVORS',
+  'CHILDHOOD. UPGRADED.',
+];
+let bannerIdx = 0;
+const bannerEl = document.getElementById('top-banner');
+setInterval(() => {
+  bannerIdx = (bannerIdx + 1) % bannerMsgs.length;
+  bannerEl.style.opacity = '0';
+  setTimeout(() => { bannerEl.innerHTML = bannerMsgs[bannerIdx]; bannerEl.style.opacity = '1'; }, 300);
+}, 3200);
 
 /* ── INIT ──────────────────────────────────────────────────── */
 renderShopGrid();
