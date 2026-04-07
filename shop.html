@@ -592,6 +592,101 @@ button{cursor:pointer;border:none;background:none}
   letter-spacing:2px;color:#3a3a3a;margin-top:14px;text-transform:uppercase;
 }
 
+/* ── COMMUNITY (shared with home) ───────────────────────────── */
+.shop-community{
+  padding:80px 32px;text-align:center;
+  background:linear-gradient(180deg,#0a0a0a,#1a1a1a);
+}
+.shop-community-h{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4.5vw,56px);
+  color:#f5f5f0;letter-spacing:2px;margin-bottom:12px;
+  text-shadow:0 0 40px rgba(255,255,255,.15),0 0 80px rgba(245,212,75,.12);
+}
+.shop-community-desc{
+  font-size:16px;color:rgba(245,245,240,.45);
+  margin:0 auto 40px;max-width:500px;font-family:'DM Sans',sans-serif;
+}
+.ugc-grid{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.ugc-card{
+  width:150px;height:190px;border-radius:16px;
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:8px;
+}
+.ugc-play{font-size:36px;opacity:.35}
+.ugc-label{
+  font-family:'Space Mono',monospace;font-size:9px;
+  letter-spacing:2px;color:rgba(245,245,240,.28);text-transform:uppercase;
+}
+
+/* ── EMAIL CAPTURE ───────────────────────────────────────────── */
+.shop-email-capture{
+  background:#a81c1c;padding:65px 32px;text-align:center;
+}
+.shop-email-h{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,4vw,48px);
+  letter-spacing:2px;color:#fce588;margin-bottom:8px;
+}
+.shop-email-desc{
+  font-size:15px;color:rgba(255,255,255,.82);
+  margin:0 0 26px;font-family:'DM Sans',sans-serif;
+}
+.shop-email-form{
+  display:flex;gap:8px;justify-content:center;
+  max-width:450px;margin:0 auto;flex-wrap:wrap;
+}
+.shop-email-input{
+  flex:1 1 240px;padding:14px 22px;border-radius:50px;
+  border:2px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.1);color:#f5f5f0;
+  font-family:'DM Sans',sans-serif;font-size:14px;
+  transition:border-color .2s;
+}
+.shop-email-input::placeholder{color:rgba(255,255,255,.45)}
+.shop-email-input:focus{outline:none;border-color:rgba(255,255,255,.6)}
+.shop-btn-email{
+  font-family:'Space Mono',monospace;font-size:12px;
+  letter-spacing:2px;text-transform:uppercase;
+  background:#e8b820;color:#0a0a0a;
+  padding:14px 30px;border-radius:50px;border:none;cursor:pointer;
+  font-weight:700;transition:transform .2s;
+}
+.shop-btn-email:hover{transform:scale(1.04)}
+
+/* ── SHOP FOOTER ─────────────────────────────────────────────── */
+.shop-footer{
+  background:#0a0a0a;padding:52px 32px 28px;
+  text-align:center;border-top:1px solid #2a2a2a;
+}
+.shop-footer-logo{
+  font-family:'Bebas Neue',sans-serif;font-size:38px;
+  letter-spacing:5px;
+  background:linear-gradient(180deg,#fce588 0%,#e8b820 50%,#c49518 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(2px 3px 0 #7a1414);
+  display:inline-block;margin-bottom:6px;
+}
+.shop-footer-tagline{
+  font-family:'Oswald',sans-serif;font-size:12px;
+  letter-spacing:4px;color:rgba(245,212,75,.35);
+  text-transform:uppercase;margin-bottom:20px;
+}
+.shop-footer-socials{
+  display:flex;gap:28px;justify-content:center;margin-bottom:26px;
+}
+.shop-footer-social{
+  font-family:'Space Mono',monospace;font-size:11px;
+  letter-spacing:2px;color:rgba(245,245,240,.35);
+  cursor:pointer;text-transform:uppercase;text-decoration:none;
+  transition:color .2s;
+}
+.shop-footer-social:hover{color:#e8b820}
+.shop-footer-legal{
+  font-family:'DM Sans',sans-serif;font-size:11px;
+  color:rgba(245,245,240,.18);line-height:1.6;
+}
+.shop-footer-legal a{color:rgba(245,245,240,.28);text-decoration:none}
+.shop-footer-legal a:hover{color:#e8b820}
+
 /* ── RESPONSIVE ─────────────────────────────────────────────── */
 @media(max-width:768px){
   .detail-grid{grid-template-columns:1fr}
@@ -605,6 +700,42 @@ button{cursor:pointer;border:none;background:none}
 @media(prefers-reduced-motion:reduce){
   .ticker-track,.card-gummy,.add-to-cart-btn{animation:none!important}
   *{transition-duration:.01ms!important}
+}
+
+/* ── WHY POPPiT COMPARISON ──────────────────────────────────── */
+.why-poppit{position:relative;width:100%;max-width:740px;margin:48px auto 0;padding:0 0 0;}
+.why-poppit__title{text-align:center;font-family:'Oswald',sans-serif;font-weight:900;font-size:36px;letter-spacing:3px;text-transform:uppercase;color:var(--white);margin:0 0 8px;}
+.why-poppit__title span{color:var(--electric);text-shadow:0 0 30px rgba(0,212,255,.4);}
+.why-poppit__subtitle{text-align:center;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:#6a6a7a;margin-bottom:32px;}
+.why-poppit__card{background:var(--dark-gray);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden;box-shadow:0 4px 40px rgba(0,0,0,.4);}
+.why-poppit__grid{display:grid;grid-template-columns:1fr 140px 140px;gap:0;align-items:start;}
+.why-poppit__img-cell{display:flex;align-items:flex-end;justify-content:center;height:180px;padding:24px 0 16px;}
+.why-poppit__product-poppit{width:95px;height:140px;border-radius:14px;background:linear-gradient(170deg,#111116,#0D0D12);border:2px solid var(--electric);box-shadow:0 0 20px rgba(0,212,255,.2),inset 0 1px 0 rgba(255,255,255,.05);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px;transition:transform .3s,box-shadow .3s;}
+.why-poppit__product-poppit:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 0 28px rgba(0,212,255,.35),0 8px 40px rgba(0,0,0,.4);}
+.why-poppit__product-poppit .brand-name{font-family:'Oswald',sans-serif;font-weight:900;font-size:15px;color:var(--electric);letter-spacing:1.5px;text-shadow:0 0 12px rgba(0,212,255,.5);}
+.why-poppit__product-poppit .brand-sub{font-size:7.5px;color:#6a6a7a;letter-spacing:.5px;text-transform:uppercase;text-align:center;}
+.why-poppit__product-poppit .flavor-dots{display:flex;gap:6px;}
+.why-poppit__product-poppit .flavor-dots span{width:8px;height:8px;border-radius:50%;box-shadow:0 0 6px currentColor;}
+.why-poppit__product-candy{position:relative;width:100px;height:100px;opacity:.5;filter:grayscale(.3);}
+.why-poppit__product-candy .gummy{position:absolute;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;opacity:.7;}
+.why-poppit__col-header{font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-align:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.why-poppit__col-header--poppit{color:var(--electric);text-shadow:0 0 20px rgba(0,212,255,.25);}
+.why-poppit__col-header--candy{color:#6a6a7a;}
+.why-poppit__row-label{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--white);padding:0 24px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;min-height:54px;line-height:1.3;transition:background .2s;}
+.why-poppit__row-check{display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,255,255,.07);min-height:54px;transition:background .2s;}
+.why-poppit__grid>:nth-last-child(-n+3){border-bottom:none;}
+.why-poppit__icon{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;line-height:1;flex-shrink:0;transition:transform .2s;}
+.why-poppit__icon:hover{transform:scale(1.15);}
+.why-poppit__icon--yes{background:var(--electric);color:#fff;box-shadow:0 0 12px rgba(0,212,255,.3);}
+.why-poppit__icon--no{background:transparent;border:2px solid rgba(168,28,28,.4);color:var(--red);opacity:.7;}
+@media(max-width:520px){
+  .why-poppit__grid{grid-template-columns:1fr 100px 100px;}
+  .why-poppit__title{font-size:26px;letter-spacing:2px;}
+  .why-poppit__row-label{font-size:11px;padding:0 16px;letter-spacing:.5px;}
+  .why-poppit__col-header{font-size:11px;}
+  .why-poppit__icon{width:24px;height:24px;font-size:12px;}
+  .why-poppit__img-cell{height:150px;}
+  .why-poppit__product-poppit{width:75px;height:110px;}
 }
 </style>
 </head>
@@ -1081,10 +1212,116 @@ function showProductDetail(p) {
         </div>
       </div>
     </div>
+    <section class="why-poppit">
+      <h2 class="why-poppit__title">Why <span>POPPiT</span>?</h2>
+      <p class="why-poppit__subtitle">Childhood. Upgraded.</p>
+      <div class="why-poppit__card">
+        <div class="why-poppit__grid">
+          <div class="why-poppit__img-spacer"></div>
+          <div class="why-poppit__img-cell">
+            <div class="why-poppit__product-poppit">
+              <span class="brand-sub">Protein Gummy</span>
+              <span class="brand-name">POPPiT</span>
+              <div class="flavor-dots">
+                <span style="background:#00d4ff;color:#00d4ff"></span>
+                <span style="background:#ff2d7b;color:#ff2d7b"></span>
+                <span style="background:#b8ff00;color:#b8ff00"></span>
+              </div>
+              <span class="brand-sub">Childhood. Upgraded.</span>
+            </div>
+          </div>
+          <div class="why-poppit__img-cell">
+            <div class="why-poppit__product-candy">
+              <div class="gummy" style="background:#e74c3c;width:28px;height:24px;top:10px;left:18px;transform:rotate(-15deg)"></div>
+              <div class="gummy" style="background:#f39c12;width:26px;height:22px;top:5px;left:48px;transform:rotate(10deg)"></div>
+              <div class="gummy" style="background:#2ecc71;width:30px;height:24px;top:28px;left:8px;transform:rotate(5deg)"></div>
+              <div class="gummy" style="background:#e74c3c;width:24px;height:22px;top:30px;left:40px;transform:rotate(-8deg)"></div>
+              <div class="gummy" style="background:#f39c12;width:28px;height:22px;top:24px;left:64px;transform:rotate(20deg)"></div>
+              <div class="gummy" style="background:#2ecc71;width:26px;height:24px;top:50px;left:28px;transform:rotate(-10deg)"></div>
+              <div class="gummy" style="background:#e74c3c;width:24px;height:20px;top:48px;left:58px;transform:rotate(12deg)"></div>
+              <div class="gummy" style="background:#f39c12;width:28px;height:22px;top:66px;left:40px;transform:rotate(-5deg)"></div>
+            </div>
+          </div>
+          <div class="why-poppit__col-header why-poppit__col-header--labels"></div>
+          <div class="why-poppit__col-header why-poppit__col-header--poppit">POPPiT</div>
+          <div class="why-poppit__col-header why-poppit__col-header--candy">Candy</div>
+          <div class="why-poppit__row-label">Protein</div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--yes">&#10003;</span></div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--no">&#10005;</span></div>
+          <div class="why-poppit__row-label">Premium Ingredients</div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--yes">&#10003;</span></div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--no">&#10005;</span></div>
+          <div class="why-poppit__row-label">Keeps You Satisfied</div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--yes">&#10003;</span></div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--no">&#10005;</span></div>
+          <div class="why-poppit__row-label">Balanced Nutrition</div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--yes">&#10003;</span></div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--no">&#10005;</span></div>
+          <div class="why-poppit__row-label">Clean Ingredients</div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--yes">&#10003;</span></div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--no">&#10005;</span></div>
+          <div class="why-poppit__row-label">Dairy-Free</div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--yes">&#10003;</span></div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--no">&#10005;</span></div>
+          <div class="why-poppit__row-label">Gluten-Free</div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--yes">&#10003;</span></div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--no">&#10005;</span></div>
+          <div class="why-poppit__row-label">Satisfies Hunger</div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--yes">&#10003;</span></div>
+          <div class="why-poppit__row-check"><span class="why-poppit__icon why-poppit__icon--no">&#10005;</span></div>
+        </div>
+      </div>
+    </section>
     <div class="showcase-cta">
       <button class="showcase-cta-btn"><span>JOIN THE WAITLIST</span></button>
       <div class="showcase-cta-sub">Be first when we drop · No spam, ever</div>
     </div>
+
+    <div class="shop-community">
+      <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,245,240,.35);display:block;margin-bottom:14px;">Community</span>
+      <div class="shop-community-h">Join the Rebellion</div>
+      <p class="shop-community-desc">Tag #POPPiT and show us how you savor the moment.</p>
+      <div class="ugc-grid">
+        <div class="ugc-card" style="background:linear-gradient(135deg,rgba(255,45,123,.18),rgba(255,45,123,.06));border:1px solid rgba(255,45,123,.18)">
+          <div class="ugc-play">▶</div><div class="ugc-label">UGC Coming Soon</div>
+        </div>
+        <div class="ugc-card" style="background:linear-gradient(135deg,rgba(0,212,255,.18),rgba(0,212,255,.06));border:1px solid rgba(0,212,255,.18)">
+          <div class="ugc-play">▶</div><div class="ugc-label">UGC Coming Soon</div>
+        </div>
+        <div class="ugc-card" style="background:linear-gradient(135deg,rgba(184,255,0,.16),rgba(184,255,0,.05));border:1px solid rgba(184,255,0,.16)">
+          <div class="ugc-play">▶</div><div class="ugc-label">UGC Coming Soon</div>
+        </div>
+        <div class="ugc-card" style="background:linear-gradient(135deg,rgba(232,184,32,.18),rgba(232,184,32,.06));border:1px solid rgba(232,184,32,.18)">
+          <div class="ugc-play">▶</div><div class="ugc-label">UGC Coming Soon</div>
+        </div>
+        <div class="ugc-card" style="background:linear-gradient(135deg,rgba(168,28,28,.22),rgba(168,28,28,.08));border:1px solid rgba(168,28,28,.22)">
+          <div class="ugc-play">▶</div><div class="ugc-label">UGC Coming Soon</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-email-capture">
+      <div class="shop-email-h">Get Early Access</div>
+      <p class="shop-email-desc">15% off your first order. No spam. Just candy.</p>
+      <form class="shop-email-form" onsubmit="event.preventDefault()">
+        <input type="email" class="shop-email-input" placeholder="your@email.com" required />
+        <button type="submit" class="shop-btn-email">Join</button>
+      </form>
+    </div>
+
+    <footer class="shop-footer">
+      <div class="shop-footer-logo">POPPiT</div>
+      <div class="shop-footer-tagline">savor the moment</div>
+      <div class="shop-footer-socials">
+        <a href="#" class="shop-footer-social">TikTok</a>
+        <a href="#" class="shop-footer-social">Instagram</a>
+        <a href="#" class="shop-footer-social">X / Twitter</a>
+      </div>
+      <div class="shop-footer-legal">
+        &copy; 2026 Roadies Nutrition LLC. All Rights Reserved.<br>
+        <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a>
+      </div>
+    </footer>
   `;
 }
 
