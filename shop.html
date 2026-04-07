@@ -6,7 +6,7 @@
 <title>POPPiT Shop</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700;800;900&family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 <style>
 /* ── RESET ─────────────────────────────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box}
@@ -478,6 +478,102 @@ button{cursor:pointer;border:none;background:none}
   font-style:italic;line-height:1.6;
 }
 
+/* ── BENEFIT CARDS SECTION ──────────────────────────────────── */
+.showcase-headline{
+  text-align:center;padding:80px 40px 20px;position:relative;
+}
+.showcase-headline::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:200px;height:3px;border-radius:2px;
+  background:linear-gradient(90deg,var(--electric),var(--magenta),var(--lime));
+}
+.showcase-eyebrow{
+  font-family:'Space Mono',monospace;font-size:13px;
+  letter-spacing:4px;text-transform:uppercase;
+  color:var(--electric);margin-bottom:16px;display:block;
+}
+.showcase-h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px,5.5vw,72px);
+  line-height:.95;letter-spacing:2px;color:var(--off-white);
+}
+.showcase-h1 .showcase-accent{
+  color:var(--magenta);position:relative;display:inline-block;
+}
+.showcase-h1 .showcase-accent::after{
+  content:'';position:absolute;bottom:2px;left:0;right:0;
+  height:4px;background:var(--magenta);border-radius:2px;opacity:.5;
+}
+.showcase-wrap{max-width:720px;margin:0 auto;padding:60px 48px 80px}
+.benefits-list{display:flex;flex-direction:column;gap:24px}
+.benefit-card{
+  position:relative;padding:28px 32px;
+  background:#141414;border:1px solid var(--mid-gray);border-radius:16px;
+  overflow:hidden;transition:all .35s ease;
+  opacity:0;transform:translateY(20px);
+  animation:benefitFadeUp .5s ease forwards;
+}
+.benefit-card:nth-child(1){animation-delay:.1s}
+.benefit-card:nth-child(2){animation-delay:.25s}
+.benefit-card:nth-child(3){animation-delay:.4s}
+.benefit-card:nth-child(4){animation-delay:.55s}
+@keyframes benefitFadeUp{to{opacity:1;transform:translateY(0)}}
+.benefit-card::before{
+  content:'';position:absolute;top:0;left:0;
+  width:4px;height:100%;border-radius:4px 0 0 4px;transition:width .3s ease;
+}
+.benefit-card:nth-child(1)::before{background:var(--electric)}
+.benefit-card:nth-child(2)::before{background:var(--magenta)}
+.benefit-card:nth-child(3)::before{background:var(--lime)}
+.benefit-card:nth-child(4)::before{background:var(--electric)}
+.benefit-card:hover{transform:translateX(6px)}
+.benefit-card:nth-child(1):hover{background:linear-gradient(135deg,#141414,rgba(0,212,255,.06));border-color:rgba(0,212,255,.3)}
+.benefit-card:nth-child(2):hover{background:linear-gradient(135deg,#141414,rgba(255,45,123,.06));border-color:rgba(255,45,123,.3)}
+.benefit-card:nth-child(3):hover{background:linear-gradient(135deg,#141414,rgba(184,255,0,.06));border-color:rgba(184,255,0,.3)}
+.benefit-card:nth-child(4):hover{background:linear-gradient(135deg,#141414,rgba(0,212,255,.06));border-color:rgba(0,212,255,.3)}
+.benefit-card:hover::before{width:6px}
+.benefit-num{
+  font-family:'Bebas Neue',sans-serif;font-size:14px;
+  letter-spacing:3px;margin-bottom:8px;opacity:.4;
+}
+.benefit-card:nth-child(1) .benefit-num{color:var(--electric)}
+.benefit-card:nth-child(2) .benefit-num{color:var(--magenta)}
+.benefit-card:nth-child(3) .benefit-num{color:var(--lime)}
+.benefit-card:nth-child(4) .benefit-num{color:var(--electric)}
+.benefit-title{
+  font-family:'Bebas Neue',sans-serif;font-size:24px;
+  letter-spacing:1.5px;margin-bottom:10px;line-height:1.1;
+}
+.benefit-card:nth-child(1) .benefit-title{color:var(--electric)}
+.benefit-card:nth-child(2) .benefit-title{color:var(--magenta)}
+.benefit-card:nth-child(3) .benefit-title{color:var(--lime)}
+.benefit-card:nth-child(4) .benefit-title{color:var(--electric)}
+.benefit-desc{font-size:14px;line-height:1.6;color:#b0b0b0;font-weight:400}
+.showcase-cta{text-align:center;padding:0 48px 80px}
+.showcase-cta-btn{
+  display:inline-block;font-family:'Bebas Neue',sans-serif;
+  font-size:20px;letter-spacing:3px;padding:18px 60px;
+  background:linear-gradient(135deg,var(--electric),var(--magenta));
+  color:var(--black);text-decoration:none;border-radius:60px;
+  transition:all .3s ease;position:relative;overflow:hidden;border:none;cursor:pointer;
+}
+.showcase-cta-btn::before{
+  content:'';position:absolute;inset:2px;
+  background:#0a0a0a;border-radius:58px;z-index:0;transition:opacity .3s ease;
+}
+.showcase-cta-btn span{
+  position:relative;z-index:1;
+  background:linear-gradient(135deg,var(--electric),var(--magenta));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  transition:all .3s ease;
+}
+.showcase-cta-btn:hover::before{opacity:0}
+.showcase-cta-btn:hover span{-webkit-text-fill-color:var(--black);background:none}
+.showcase-cta-sub{
+  font-family:'Space Mono',monospace;font-size:11px;
+  letter-spacing:2px;color:#3a3a3a;margin-top:14px;text-transform:uppercase;
+}
+
 /* ── RESPONSIVE ─────────────────────────────────────────────── */
 @media(max-width:768px){
   .detail-grid{grid-template-columns:1fr}
@@ -924,6 +1020,38 @@ function showProductDetail(p) {
           </div>
         </div>
       </div>
+    </div>
+    <div class="showcase-headline">
+      <span class="showcase-eyebrow">For candy lovers who want more</span>
+      <h1 class="showcase-h1">SNACK SMARTER.<br>HIT <span class="showcase-accent">HARDER.</span></h1>
+    </div>
+    <div class="showcase-wrap">
+      <div class="benefits-list">
+        <div class="benefit-card">
+          <div class="benefit-num">01</div>
+          <div class="benefit-title">YOUR 2PM CRAVING KILLER</div>
+          <div class="benefit-desc">Struggling with mindless snacking? Pop a few gummies and actually feel satisfied. Real protein stops the grazing cycle cold.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-num">02</div>
+          <div class="benefit-title">STOP THE POST-SNACK CRASH</div>
+          <div class="benefit-desc">No sugar spike, no energy cliff. Clean protein fuel keeps you locked in and energized — not reaching for another hit of candy.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-num">03</div>
+          <div class="benefit-title">A SNACK THAT ACTUALLY DELIVERS</div>
+          <div class="benefit-desc">Tired of chalky bars and sad protein cookies? These taste like the candy you grew up on — but they're actually working for you.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-num">04</div>
+          <div class="benefit-title">NO MORE DIGESTIVE DISCOMFORT</div>
+          <div class="benefit-desc">Easy to digest. No bloating, no gas, no regret. Just clean protein in a form your gut actually agrees with.</div>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-cta">
+      <button class="showcase-cta-btn"><span>JOIN THE WAITLIST</span></button>
+      <div class="showcase-cta-sub">Be first when we drop · No spam, ever</div>
     </div>
   `;
 }
