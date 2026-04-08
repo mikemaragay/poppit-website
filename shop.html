@@ -1078,6 +1078,14 @@ function showProductDetail(p) {
   currentQty = 1;
   subSave = false;
 
+  // Fix 1.6 — dynamic per-product background
+  const viewProduct = document.getElementById('view-product');
+  if (p.isSour) {
+    viewProduct.style.background = 'radial-gradient(ellipse at 20% 10%,rgba(255,230,0,.10) 0%,transparent 40%),radial-gradient(ellipse at 80% 5%,rgba(0,212,255,.07) 0%,transparent 40%),#0a0a0a';
+  } else {
+    viewProduct.style.background = 'radial-gradient(ellipse at 20% 10%,rgba(168,28,28,.12) 0%,transparent 40%),radial-gradient(ellipse at 80% 5%,rgba(232,184,32,.08) 0%,transparent 40%),#0a0a0a';
+  }
+
   document.getElementById('view-shop').style.display = 'none';
   const viewProd = document.getElementById('view-product');
   viewProd.style.display = 'block';
@@ -1468,7 +1476,9 @@ function closeCart() {
 /* ── NAV ───────────────────────────────────────────────────── */
 function showShopView() {
   document.getElementById('view-shop').style.display = 'block';
-  document.getElementById('view-product').style.display = 'none';
+  const vp = document.getElementById('view-product');
+  vp.style.display = 'none';
+  vp.style.background = '';
   document.getElementById('detail-bottom').innerHTML = '';
   currentProduct = null;
   window.scrollTo(0,0);
