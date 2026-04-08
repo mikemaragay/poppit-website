@@ -534,9 +534,11 @@ button{cursor:pointer;border:none;background:none}
 }
 .showcase-wrap{max-width:1100px;margin:0 auto;padding:60px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch}
 .showcase-img-box{
-  background:#111;border:1px solid #2a2a2a;border-radius:20px;
+  background:linear-gradient(145deg,#141414 0%,rgba(184,255,0,.04) 50%,rgba(0,212,255,.03) 100%);
+  border:1px solid rgba(184,255,0,.12);border-radius:20px;
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:16px;overflow:hidden;
+  box-shadow:inset 0 0 60px rgba(0,212,255,.03);
 }
 .showcase-img-placeholder{
   display:flex;flex-direction:column;align-items:center;gap:12px;
@@ -554,7 +556,7 @@ button{cursor:pointer;border:none;background:none}
 }
 .benefit-card{
   position:relative;padding:28px 32px;
-  background:#141414;border:1px solid var(--mid-gray);border-radius:16px;
+  background:linear-gradient(135deg,#161616,#121212);border:1px solid var(--mid-gray);border-radius:16px;
   overflow:hidden;transition:all .35s ease;
   opacity:0;transform:translateY(20px);
   animation:benefitFadeUp .5s ease forwards;
@@ -636,15 +638,23 @@ button{cursor:pointer;border:none;background:none}
 }
 .ugc-grid{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 .ugc-card{
-  width:150px;height:190px;border-radius:16px;
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;gap:8px;
+  width:200px;border-radius:16px;overflow:hidden;
+  background:#1a1a1a;border:1px solid #2a2a2a;
+  text-align:left;transition:transform .3s,border-color .3s;
 }
-.ugc-play{font-size:36px;opacity:.35}
-.ugc-label{
-  font-family:'Space Mono',monospace;font-size:9px;
-  letter-spacing:2px;color:rgba(245,245,240,.28);text-transform:uppercase;
+.ugc-card:hover{transform:translateY(-4px)}
+.ugc-card-header{display:flex;align-items:center;gap:10px;padding:12px 14px 8px}
+.ugc-avatar{
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#0a0a0a;
+  flex-shrink:0;
 }
+.ugc-username{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;color:rgba(245,245,240,.5)}
+.ugc-body{padding:0 14px 12px}
+.ugc-stars{color:#f5d44b;font-size:11px;letter-spacing:1px;margin-bottom:6px}
+.ugc-text{font-size:12px;color:rgba(245,245,240,.72);line-height:1.55;font-style:italic}
+.ugc-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:rgba(232,184,32,.5);margin-top:8px;display:block}
 
 /* ── EMAIL CAPTURE ───────────────────────────────────────────── */
 .shop-email-capture{
@@ -1334,20 +1344,25 @@ function showProductDetail(p) {
       <div class="shop-community-h">Join the Rebellion</div>
       <p class="shop-community-desc">Tag #POPPiT and show us how you savor the moment.</p>
       <div class="ugc-grid">
-        <div class="ugc-card" style="background:linear-gradient(135deg,rgba(255,45,123,.18),rgba(255,45,123,.06));border:1px solid rgba(255,45,123,.18)">
-          <div class="ugc-play">▶</div><div class="ugc-label">UGC Coming Soon</div>
+        <div class="ugc-card" style="border-left:3px solid #ff2d7b">
+          <div class="ugc-card-header"><div class="ugc-avatar" style="background:#ff2d7b">A</div><span class="ugc-username">@alexr</span></div>
+          <div class="ugc-body"><div class="ugc-stars">★★★★★</div><p class="ugc-text">"One of the top five best things I've ever put in my mouth."</p><span class="ugc-tag">#POPPiT</span></div>
         </div>
-        <div class="ugc-card" style="background:linear-gradient(135deg,rgba(0,212,255,.18),rgba(0,212,255,.06));border:1px solid rgba(0,212,255,.18)">
-          <div class="ugc-play">▶</div><div class="ugc-label">UGC Coming Soon</div>
+        <div class="ugc-card" style="border-left:3px solid #00d4ff">
+          <div class="ugc-card-header"><div class="ugc-avatar" style="background:#00d4ff">J</div><span class="ugc-username">@jess.m</span></div>
+          <div class="ugc-body"><div class="ugc-stars">★★★★★</div><p class="ugc-text">"Wait these are actually candy?? With 10g protein?? Shut up."</p><span class="ugc-tag">#POPPiT</span></div>
         </div>
-        <div class="ugc-card" style="background:linear-gradient(135deg,rgba(184,255,0,.16),rgba(184,255,0,.05));border:1px solid rgba(184,255,0,.16)">
-          <div class="ugc-play">▶</div><div class="ugc-label">UGC Coming Soon</div>
+        <div class="ugc-card" style="border-left:3px solid #b8ff00">
+          <div class="ugc-card-header"><div class="ugc-avatar" style="background:#b8ff00">M</div><span class="ugc-username">@mike_lifts</span></div>
+          <div class="ugc-body"><div class="ugc-stars">★★★★★</div><p class="ugc-text">"My gym bros think I'm eating candy. I am. It just has protein."</p><span class="ugc-tag">#POPPiT</span></div>
         </div>
-        <div class="ugc-card" style="background:linear-gradient(135deg,rgba(232,184,32,.18),rgba(232,184,32,.06));border:1px solid rgba(232,184,32,.18)">
-          <div class="ugc-play">▶</div><div class="ugc-label">UGC Coming Soon</div>
+        <div class="ugc-card" style="border-left:3px solid #e8b820">
+          <div class="ugc-card-header"><div class="ugc-avatar" style="background:#e8b820">S</div><span class="ugc-username">@sarah.fit</span></div>
+          <div class="ugc-body"><div class="ugc-stars">★★★★★</div><p class="ugc-text">"Replaced my 3pm protein bar habit. Never going back."</p><span class="ugc-tag">#POPPiT</span></div>
         </div>
-        <div class="ugc-card" style="background:linear-gradient(135deg,rgba(168,28,28,.22),rgba(168,28,28,.08));border:1px solid rgba(168,28,28,.22)">
-          <div class="ugc-play">▶</div><div class="ugc-label">UGC Coming Soon</div>
+        <div class="ugc-card" style="border-left:3px solid #ff2d7b">
+          <div class="ugc-card-header"><div class="ugc-avatar" style="background:#ff2d7b">K</div><span class="ugc-username">@kayla.snacks</span></div>
+          <div class="ugc-body"><div class="ugc-stars">★★★★★</div><p class="ugc-text">"The blue raspberry ones are genuinely addictive. Help."</p><span class="ugc-tag">#POPPiT</span></div>
         </div>
       </div>
     </div>
