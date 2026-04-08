@@ -964,7 +964,6 @@ function renderShopGrid() {
             "></div>
           `).join('')}
         </div>
-        <div class="save-badge">SAVE $${(p.comparePrice-p.price).toFixed(0)}</div>
         ${p.isSour?'<div class="sour-badge">😝 SOUR</div>':''}
       </div>
       <div class="card-info">
@@ -978,13 +977,6 @@ function renderShopGrid() {
               <span class="flavor-pill-name" style="color:${f.color}">${f.name}</span>
             </div>
           `).join('')}
-        </div>
-        <div class="card-bottom">
-          <div class="card-price-wrap">
-            <span class="card-price gold-text">$${p.price.toFixed(2)}</span>
-            <span class="card-compare">$${p.comparePrice.toFixed(2)}</span>
-          </div>
-          <div class="card-view-btn">VIEW →</div>
         </div>
       </div>
     `;
