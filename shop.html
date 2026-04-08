@@ -440,36 +440,7 @@ button{cursor:pointer;border:none;background:none}
 .cart-free-ship{text-align:center;margin-top:10px;color:rgba(245,245,240,.28);font-size:11px}
 
 /* ── DETAIL BOTTOM (full-width ribbon + boxes) ──────────────── */
-#detail-bottom{width:100%;position:relative;overflow:hidden;}
-#detail-bottom>*{position:relative;z-index:1}
-.detail-bg-gummy{
-  position:absolute;
-  border-radius:40% 60% 55% 45% / 50% 40% 60% 50%;
-  filter:blur(1px);pointer-events:none;
-  animation:floatGummy var(--dur,6s) ease-in-out infinite alternate;
-  animation-delay:var(--del,0s);
-  will-change:transform;z-index:0;
-}
-.detail-section-ribbon{
-  overflow:hidden;
-}
-.detail-section-ribbon-track{
-  display:flex;gap:32px;white-space:nowrap;
-  padding:13px 0;
-  animation:tickerScroll 22s linear infinite;
-}
-.detail-section-ribbon--lime .detail-section-ribbon-track{
-  background:var(--lime);
-}
-.detail-section-ribbon--gold .detail-section-ribbon-track{
-  background:linear-gradient(90deg,#c49518,#e8b820,#f5d44b,#e8b820,#c49518);
-}
-.detail-section-ribbon-item{
-  font-family:'Oswald','Impact',sans-serif;font-size:14px;
-  font-weight:700;letter-spacing:.14em;flex-shrink:0;
-}
-.detail-section-ribbon--lime .detail-section-ribbon-item{color:#0a0a0a}
-.detail-section-ribbon--gold .detail-section-ribbon-item{color:#0a0a0a}
+#detail-bottom{width:100%}
 .detail-ribbon{overflow:hidden}
 .detail-ribbon-track{
   display:flex;gap:28px;white-space:nowrap;
@@ -1213,34 +1184,7 @@ function showProductDetail(p) {
 
   /* ── FULL-WIDTH BOTTOM: ribbon + info boxes ── */
   const ribbonItems = Array(8).fill(['10G PROTEIN','★','CHILDHOOD. UPGRADED.','★','NO ARTIFICIAL JUNK','★','LOW SUGAR','★']).flat();
-  const gummyData = [
-    {color:'#00d4ff',size:120,top:8,left:3,dur:7,del:0,op:.18},
-    {color:'#ff2d7b',size:90,top:15,left:88,dur:9,del:1.2,op:.15},
-    {color:'#b8ff00',size:70,top:35,left:72,dur:6,del:2.5,op:.14},
-    {color:'#e8b820',size:100,top:55,left:5,dur:8,del:0.8,op:.16},
-    {color:'#00d4ff',size:80,top:70,left:55,dur:7.5,del:3.1,op:.13},
-    {color:'#ff2d7b',size:110,top:82,left:82,dur:10,del:1.8,op:.15},
-    {color:'#b8ff00',size:65,top:20,left:45,dur:6.5,del:4,op:.12},
-    {color:'#e8b820',size:85,top:48,left:92,dur:8.5,del:2,op:.14},
-    {color:'#00d4ff',size:75,top:90,left:22,dur:7,del:3.5,op:.13},
-    {color:'#ff2d7b',size:95,top:62,left:38,dur:9.5,del:0.5,op:.15},
-    {color:'#b8ff00',size:60,top:5,left:65,dur:6,del:1.5,op:.12},
-    {color:'#e8b820',size:115,top:75,left:10,dur:11,del:2.8,op:.16},
-  ];
-  const gummiesHtml = gummyData.map(g=>`
-    <div class="detail-bg-gummy" style="
-      width:${g.size}px;height:${g.size}px;
-      background:${g.color};opacity:${g.op};
-      top:${g.top}%;left:${g.left}%;
-      --dur:${g.dur}s;--del:${g.del}s;
-    "></div>
-  `).join('');
-
-  const limeItems = Array(12).fill(['BOUNCY & CHEWY','✦','TASTES LIKE CANDY','✦','10G PROTEIN','✦','NO ARTIFICIAL JUNK','✦']).flat();
-  const goldItems = Array(12).fill(['CHILDHOOD. UPGRADED.','★','SAVOR THE MOMENT','★','REAL CANDY ENERGY','★','LOW SUGAR','★']).flat();
-
   document.getElementById('detail-bottom').innerHTML = `
-    ${gummiesHtml}
     <div class="detail-ribbon">
       <div class="detail-ribbon-track">
         ${ribbonItems.map(t=>`<span class="detail-ribbon-item">${t}</span>`).join('')}
@@ -1282,11 +1226,6 @@ function showProductDetail(p) {
             <p class="ingredients-allergen">Contains no major allergens. Manufactured in a facility that processes tree nuts and soy.</p>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="detail-section-ribbon detail-section-ribbon--lime">
-      <div class="detail-section-ribbon-track">
-        ${limeItems.map(t=>`<span class="detail-section-ribbon-item">${t}</span>`).join('')}
       </div>
     </div>
     <div class="showcase-headline">
@@ -1390,11 +1329,6 @@ function showProductDetail(p) {
         </div>
       </div>
     </section>
-    <div class="detail-section-ribbon detail-section-ribbon--gold">
-      <div class="detail-section-ribbon-track">
-        ${goldItems.map(t=>`<span class="detail-section-ribbon-item">${t}</span>`).join('')}
-      </div>
-    </div>
     <div class="shop-community">
       <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,245,240,.35);display:block;margin-bottom:14px;">Community</span>
       <div class="shop-community-h">Join the Rebellion</div>
