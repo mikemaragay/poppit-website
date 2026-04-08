@@ -336,8 +336,13 @@ button{cursor:pointer;border:none;background:none}
   letter-spacing:.1em;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
   transition:all .2s;box-shadow:0 4px 20px rgba(168,28,28,.44);
+  animation:atcPulse 3s ease-in-out infinite;
 }
-.add-to-cart-btn:hover{box-shadow:0 6px 28px rgba(168,28,28,.66);filter:brightness(1.1)}
+@keyframes atcPulse{
+  0%,100%{box-shadow:0 4px 20px rgba(168,28,28,.44)}
+  50%{box-shadow:0 4px 40px rgba(168,28,28,.75),0 0 60px rgba(168,28,28,.3)}
+}
+.add-to-cart-btn:hover{box-shadow:0 8px 40px rgba(168,28,28,.7);filter:brightness(1.1);animation:none}
 .sub-note{
   color:rgba(245,245,240,.33);font-size:12px;text-align:center;
   font-style:italic;margin-bottom:8px;
@@ -1076,7 +1081,7 @@ function showProductDetail(p) {
   currentProduct = p;
   currentGalleryIdx = 0;
   currentQty = 1;
-  subSave = false;
+  subSave = true; // default to Subscribe & Save
 
   // Fix 1.6 — dynamic per-product background
   const viewProduct = document.getElementById('view-product');
@@ -1091,6 +1096,20 @@ function showProductDetail(p) {
   viewProd.style.display = 'block';
   viewProd.style.animation = 'fadeSlideUp .4s ease-out both';
   window.scrollTo(0, 0);
+
+  // Fix 1.9 — sour box gets yellow ATC button
+  setTimeout(() => {
+    const atcBtn = document.getElementById('atc-btn');
+    if (!atcBtn) return;
+    if (p.isSour) {
+      atcBtn.style.background = '#ffe600';
+      atcBtn.style.color = '#0a0a0a';
+      atcBtn.style.animation = 'none';
+      atcBtn.style.boxShadow = '0 4px 20px rgba(255,230,0,.45)';
+      atcBtn.onmouseenter = () => { atcBtn.style.boxShadow = '0 8px 40px rgba(255,230,0,.7)'; };
+      atcBtn.onmouseleave = () => { atcBtn.style.boxShadow = '0 4px 20px rgba(255,230,0,.45)'; };
+    }
+  }, 0);
 
   const accent = p.isSour ? '#ffe600' : '#e8b820';
   const accentBg = p.isSour ? 'rgba(255,230,0,.12)' : 'rgba(232,184,32,.12)';
@@ -1159,6 +1178,9 @@ function showProductDetail(p) {
       ${['No Fillers','No Artificial Flavors','No GMO','Gluten Free','Low Sugar'].map(t=>`<span class="no-junk-tag">✓ ${t}</span>`).join('')}
     </div>
   `;
+
+  // Fix 3.6 — default to Subscribe & Save selected
+  setTimeout(() => setPurchaseType(true), 0);
 
   /* ── FULL-WIDTH BOTTOM: ribbon + info boxes ── */
   const ribbonItems = Array(8).fill(['10G PROTEIN','★','CHILDHOOD. UPGRADED.','★','NO ARTIFICIAL JUNK','★','LOW SUGAR','★']).flat();

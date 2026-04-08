@@ -692,6 +692,7 @@ img{display:block;max-width:100%}
   #hero{flex-direction:column;gap:0;padding:60px 24px 100px}
   .hero-content{text-align:center;align-items:center;max-width:100%}
   .hero-right{display:none}
+  .bg-gummy{opacity:calc(var(--op,.2) + .12) !important}
 }
 </style>
 </head>
@@ -733,8 +734,13 @@ img{display:block;max-width:100%}
     <p class="hero-sub">10g protein. 5g fiber. No artificial flavors or colors.</p>
 
     <button class="btn-primary" onclick="window.location.href='shop.html'">
-      Shop Now
+      Shop Now — $34.99 ↗
     </button>
+
+    <div style="margin-top:24px;max-width:420px;background:rgba(255,255,255,.04);border-left:3px solid var(--gold);border-radius:6px;padding:12px 16px;">
+      <p style="font-size:13px;color:rgba(245,245,240,.72);font-style:italic;line-height:1.55;margin:0 0 6px;">"Wait these are actually candy?? With 10g protein?? Shut up."</p>
+      <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);">★★★★★ &nbsp;VERIFIED BUYER</span>
+    </div>
   </div>
 
   <!-- SWAP: replace placeholder with product bag image -->
@@ -901,6 +907,14 @@ img{display:block;max-width:100%}
   <div class="ticker-row ticker-row--btm">
     10G PROTEIN PER SERVING ✦ NO ARTIFICIAL COLORS ✦ BOUNCY &amp; CHEWY ✦ TASTES LIKE CANDY ✦ 5G FIBER ✦ NO ARTIFICIAL FLAVORS ✦ LOW SUGAR ✦ 10G PROTEIN PER SERVING ✦ NO ARTIFICIAL COLORS ✦ BOUNCY &amp; CHEWY ✦ TASTES LIKE CANDY ✦ 5G FIBER ✦ NO ARTIFICIAL FLAVORS ✦ LOW SUGAR ✦
   </div>
+</div>
+
+<!-- STAT BAR -->
+<div style="background:#111;border-top:1px solid #1e1e1e;border-bottom:1px solid #1e1e1e;padding:36px 32px;display:flex;justify-content:center;gap:60px;flex-wrap:wrap;text-align:center;">
+  <div><div style="font-family:'Boogaloo',cursive;font-size:clamp(36px,5vw,56px);background:linear-gradient(180deg,#fce588,#e8b820);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">10G</div><div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(245,245,240,.45);text-transform:uppercase;margin-top:4px;">Protein</div></div>
+  <div><div style="font-family:'Boogaloo',cursive;font-size:clamp(36px,5vw,56px);background:linear-gradient(180deg,#fce588,#e8b820);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">5G</div><div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(245,245,240,.45);text-transform:uppercase;margin-top:4px;">Fiber</div></div>
+  <div><div style="font-family:'Boogaloo',cursive;font-size:clamp(36px,5vw,56px);background:linear-gradient(180deg,#fce588,#e8b820);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">2G</div><div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(245,245,240,.45);text-transform:uppercase;margin-top:4px;">Sugar</div></div>
+  <div><div style="font-family:'Boogaloo',cursive;font-size:clamp(36px,5vw,56px);background:linear-gradient(180deg,#fce588,#e8b820);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">~80</div><div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(245,245,240,.45);text-transform:uppercase;margin-top:4px;">Cal</div></div>
 </div>
 
 <hr class="section-divider">
